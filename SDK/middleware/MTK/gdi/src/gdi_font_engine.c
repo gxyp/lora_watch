@@ -417,6 +417,7 @@ uint8_t gdi_font_engine_set_font(gdi_font_engine_font_attribute_t font)
 uint8_t gdi_font_engine_set_font_size(gdi_font_engine_size_t font_size)
 {
     gdi_font_engine_font_attribute_t font = {0};
+    font.size = font_size;
     return gdi_font_engine_set_font(font);
 }
 
