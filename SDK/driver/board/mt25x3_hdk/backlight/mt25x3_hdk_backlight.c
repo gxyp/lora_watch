@@ -214,7 +214,7 @@ bsp_backlight_status_t bsp_backlight_init_display_pwm(void)
 
     if(HAL_DISPLAY_PWM_STATUS_OK != hal_display_pwm_init(HAL_DISPLAY_PWM_CLOCK_26MHZ)){
         return BSP_BACKLIGHT_STATUS_ERROR;}
-    if(HAL_DISPLAY_PWM_STATUS_OK != hal_display_pwm_set_duty(80)){
+    if(HAL_DISPLAY_PWM_STATUS_OK != hal_display_pwm_set_duty(20)){
         return BSP_BACKLIGHT_STATUS_ERROR;}
 
     return ret;
