@@ -57,7 +57,7 @@ uint32_t ranesis_delay;
 static lcm_config_para_t ST7789H2_para =
 {
     .type = LCM_INTERFACE_TYPE_DBI,
-    .backlight_type = BACKLIGHT_TYPE_ISINK,
+    .backlight_type = BACKLIGHT_TYPE_DISPLAY_PWM,
     .main_command_address = LCD_SERIAL0_A0_LOW_ADDR,
 	.main_data_address = LCD_SERIAL0_A0_HIGH_ADDR,
 	.main_lcd_output = LCM_16BIT_16_BPP_RGB565_1,
@@ -176,7 +176,7 @@ void LCD_Init_ST7789H2(uint16_t bkground)
     hal_gpt_delay_ms(120);
 
     LCD_CtrlWrite_ST7789H2(0x36);
-    LCD_DataWrite_ST7789H2(0x00);// C0 40 60
+    LCD_DataWrite_ST7789H2(0x08);// C0 40 60
 
     LCD_CtrlWrite_ST7789H2(0x35);
     LCD_DataWrite_ST7789H2(0x00); //te on
@@ -228,7 +228,7 @@ void LCD_Init_ST7789H2(uint16_t bkground)
     LCD_DataWrite_ST7789H2(0xFE);
 
     LCD_CtrlWrite_ST7789H2(0xC0);
-    LCD_DataWrite_ST7789H2(0x2C);
+    LCD_DataWrite_ST7789H2(0x0C);
 
     LCD_CtrlWrite_ST7789H2(0xC2);
     LCD_DataWrite_ST7789H2(0x01);
@@ -280,7 +280,11 @@ void LCD_Init_ST7789H2(uint16_t bkground)
     	
     // clear the screen with black color
     LCD_CtrlWrite_ST7789H2(0x2C);
+    LCD_CtrlWrite_ST7789H2(0x21);  //yanhui
+	
     LCD_ClearAll_ST7789H2(bkground);
+	
+	
 
     LCD_CtrlWrite_ST7789H2(0xE7);
     LCD_DataWrite_ST7789H2(0x10);
